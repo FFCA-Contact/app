@@ -1,0 +1,358 @@
+/* Mobile-first, full viewport */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100dvh;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* One visible view at a time */
+.view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.view-hidden {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.view:not(.view-hidden) {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Full-bleed background image */
+.screen-bg {
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+}
+
+.fit-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Clickable stage for silhouette/organs (image is pointer-events: none so clicks hit stage) */
+.scope-stage {
+  background-color: #fff;
+  cursor: crosshair;
+}
+
+.scope-stage .fit-img {
+  pointer-events: none;
+}
+
+/* Overlay for home buttons - NOW ABSOLUTE TOP LEFT */
+.content-overlay {
+  position: absolute;
+  top: max(5rem, env(safe-area-inset-top));
+  left: max(1rem, env(safe-area-inset-left));
+  z-index: 2;
+  width: auto;
+  max-width: 320px;
+  padding: 0;
+}
+
+.choice-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-start;
+}
+
+.btn-choice {
+  width: 150px;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  background: #2d5016;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease, background 0.15s ease;
+}
+
+.btn-choice:active {
+  transform: scale(0.98);
+}
+
+.btn-choice:hover {
+  background: #3a6b1e;
+}
+
+.link-buttons {
+  position: absolute;
+  bottom: max(3rem, env(safe-area-inset-bottom));
+  right: max(7rem, env(safe-area-inset-left));
+  width: 450px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0 0.5rem;
+}
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 0;
+  padding: 0.3rem 3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #2d5016;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease, background 0.15s ease;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.btn-link:active {
+  transform: scale(0.98);
+}
+
+.btn-link:hover {
+  background: #3a6b1e;
+  color: #fff;
+}
+
+.btn-link-arrow {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E") center/contain no-repeat;
+  margin-left: 0.15em;
+}
+
+/* Bow scope: circle + crosshair, centered on (left, top) via transform */
+.scope {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.scope::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 3px solid rgba(200, 60, 40, 0.9);
+  border-radius: 50%;
+  background: rgba(200, 60, 40, 0.12);
+}
+
+.scope::after {
+  display: none;
+}
+
+.scope .scope-v,
+.scope .scope-h {
+  position: absolute;
+  background: rgba(200, 60, 40, 0.9);
+}
+
+.scope .scope-v {
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+}
+
+.scope .scope-h {
+  top: 50%;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  margin-top: -1px;
+}
+
+.scope.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scope:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Action buttons: bottom right */
+.btn-action {
+  position: absolute;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(1rem, env(safe-area-inset-right));
+  z-index: 10;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #2d5016;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-action:active {
+  transform: scale(0.97);
+}
+
+.btn-action.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.btn-action:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-action:disabled {
+  background: #6b6b6b;
+  color: #b0b0b0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-action:disabled:active {
+  transform: none;
+}
+
+.btn-valider:not(:disabled):hover {
+  background: #3a6b1e;
+}
+
+/* Helper text on silhouette screen */
+.silhouette-helper {
+  position: absolute;
+  top: max(0.75rem, env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2d5016;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.silhouette-helper.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.btn-recommencer {
+  background: #1a3d0e;
+}
+
+.btn-recommencer:hover {
+  background: #2d5016;
+}
+
+/* Portrait: please rotate overlay */
+.rotate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #1a2e12;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.rotate-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.rotate-overlay-content {
+  text-align: center;
+  max-width: 280px;
+}
+
+.rotate-overlay-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: url("../assets/rotate-smartphone.png") center/contain no-repeat;
+  filter: brightness(0) invert(1);
+}
+
+.rotate-overlay-text {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d5016;
+  letter-spacing: 0.05em;
+  padding: 0 0 0.5rem 0;
+}
