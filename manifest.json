@@ -1,0 +1,19 @@
+{
+  "name": "Testeur d'impact",
+  "short_name": "Testeur d'impact",
+  "description": "Visualisez l'impact d'une flèche sur un gibier",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#ffffff",
+  "theme_color": "#2d5016",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "Logo-FFCA.png",
+      "sizes": "466x468",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
