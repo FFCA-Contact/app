@@ -45,6 +45,7 @@
   const scopeOrgans = document.getElementById('scope-organs');
   const btnValider = document.getElementById('btn-valider');
   const btnRecommencer = document.getElementById('btn-recommencer');
+  const btnAccueil = document.getElementById('btn-accueil');
   const silhouetteHelper = document.getElementById('silhouette-helper');
 
   function setView(name) {
@@ -113,6 +114,15 @@
   }
 
   function recommencer() {
+    // Go back to silhouette view with the same animal
+    if (state.animal) {
+      showSilhouette(state.animal);
+    } else {
+      accueil();
+    }
+  }
+
+  function accueil() {
     state.animal = null;
     state.impactPercent = null;
     setView('home');
@@ -137,6 +147,7 @@
   silhouetteStage.addEventListener('click', onSilhouetteClick);
   btnValider.addEventListener('click', validate);
   btnRecommencer.addEventListener('click', recommencer);
+  btnAccueil.addEventListener('click', accueil);
 
   window.addEventListener('resize', onResize);
   if (typeof ResizeObserver !== 'undefined') {

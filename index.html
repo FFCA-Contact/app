@@ -20,18 +20,33 @@
   <div id="app" class="view-home">
     <!-- View 1: Home - choice -->
     <section id="view-home" class="view" aria-hidden="false">
-      <div class="screen-bg" style="background-image: url('assets/background-ffca.png');"></div>
-      <div class="content-overlay">
-        <h2 class="section-title">Espèces</h2>
-        <div class="choice-buttons">
-          <button type="button" class="btn-choice" data-animal="sanglier">Sanglier</button>
-          <button type="button" class="btn-choice" data-animal="chevreuil">Chevreuil</button>
+      <div class="screen-bg" style="background-image: url('assets/empty-page.png');"></div>
+      <div class="home-content">
+        <div class="home-column home-column-left">
+          <div class="species-dropdown">
+            <h2 class="section-title">Espèces</h2>
+            <div class="choice-buttons">
+              <button type="button" class="btn-choice" data-animal="sanglier">Sanglier</button>
+              <button type="button" class="btn-choice" data-animal="chevreuil">Chevreuil</button>
+            </div>
+          </div>
+          <img src="assets/Logo-FFCA.png" alt="Logo FFCA" class="home-logo">
         </div>
-      </div>
-      <div class="link-buttons">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZgwJIbhVZ2u9CvxIrayHPMO9zvP-K0CT5RKlZ3x95aYa4-w/viewform" class="btn-link" target="_blank" rel="noopener noreferrer">Fiche de prélèvement<span class="btn-link-arrow" aria-hidden="true"></span></a>
-        <a href="https://www.ffca.site" class="btn-link" target="_blank" rel="noopener noreferrer">FFCA <span class="btn-link-arrow" aria-hidden="true"></span></a>
-        <a href="https://www.ffca.site/page/3457869-la-boutique-ffca" class="btn-link" target="_blank" rel="noopener noreferrer">Boutique<span class="btn-link-arrow" aria-hidden="true"></span></a>
+        <div class="home-column home-column-right">
+          <div class="taglines">
+            <p class="tagline">Chasser léger</p>
+            <p class="tagline">Toujours plus près</p>
+            <p class="tagline">Se créer les conditions d'un tir facile</p>
+            <p class="tagline tagline-italic">Militer inlassablement pour la chasse</p>
+          </div>
+          <div class="home-links">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZgwJIbhVZ2u9CvxIrayHPMO9zvP-K0CT5RKlZ3x95aYa4-w/viewform" class="btn-link btn-link-full" target="_blank" rel="noopener noreferrer">Fiche de prélèvement<span class="btn-link-arrow" aria-hidden="true"></span></a>
+            <div class="home-buttons-row">
+              <a href="https://www.ffca.site" class="btn-link" target="_blank" rel="noopener noreferrer">FFCA<span class="btn-link-arrow" aria-hidden="true"></span></a>
+              <a href="https://www.ffca.site/page/3457869-la-boutique-ffca" class="btn-link" target="_blank" rel="noopener noreferrer">Boutique<span class="btn-link-arrow" aria-hidden="true"></span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     
@@ -52,7 +67,10 @@
         <img id="organs-img" src="" alt="" class="fit-img">
         <div id="scope-organs" class="scope hidden" aria-hidden="true"><span class="scope-v"></span><span class="scope-h"></span></div>
       </div>
-      <button type="button" id="btn-recommencer" class="btn-action btn-recommencer">Recommencer</button>
+      <div class="organs-buttons">
+        <button type="button" id="btn-recommencer" class="btn-action btn-recommencer">Recommencer</button>
+        <button type="button" id="btn-accueil" class="btn-action btn-accueil">Accueil</button>
+      </div>
     </section>
   </div>
 
