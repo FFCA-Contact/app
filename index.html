@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W71WDDHDH2"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W71WDDHDH2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -27,7 +26,6 @@
     </div>
   </div>
   <div id="app" class="view-home">
-    <!-- View 1: Home - choice -->
     <section id="view-home" class="view" aria-hidden="false">
       <div class="screen-bg" style="background-image: url('assets/empty-page.png');"></div>
       <div class="home-content">
@@ -55,12 +53,14 @@
               <a href="https://www.ffca.site/page/3457869-la-boutique-ffca" class="btn-link" target="_blank" rel="noopener noreferrer">Boutique<span class="btn-link-arrow" aria-hidden="true"></span></a>
             </div>
           </div>
+          <div class="copyright" style="text-align: center; color: rgba(255, 255, 255, 0.7); font-size: 0.75rem; margin-top: 15px;">
+            &copy; 2026 FFCA. Tous droits réservés.
+          </div>
         </div>
       </div>
     </section>
     
 
-    <!-- View 2: Silhouette - place scope -->
     <section id="view-silhouette" class="view view-hidden" aria-hidden="true">
       <p id="silhouette-helper" class="silhouette-helper">Cliquez pour placer le point d'impact</p>
       <div class="screen-bg scope-stage" id="silhouette-stage">
@@ -70,7 +70,6 @@
       <button type="button" id="btn-valider" class="btn-action btn-valider" disabled>Valider</button>
     </section>
 
-    <!-- View 3: Organs - result -->
     <section id="view-organs" class="view view-hidden" aria-hidden="true">
       <div class="screen-bg scope-stage" id="organs-stage">
         <img id="organs-img" src="" alt="" class="fit-img">
