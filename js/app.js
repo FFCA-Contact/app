@@ -46,6 +46,7 @@
   const btnValider = document.getElementById('btn-valider');
   const btnRecommencer = document.getElementById('btn-recommencer');
   const btnAccueil = document.getElementById('btn-accueil');
+  const btnAccueilSilhouette = document.getElementById('btn-accueil-silhouette')
   const silhouetteHelper = document.getElementById('silhouette-helper');
 
   function setView(name) {
@@ -148,6 +149,9 @@
   btnValider.addEventListener('click', validate);
   btnRecommencer.addEventListener('click', recommencer);
   btnAccueil.addEventListener('click', accueil);
+  if (btnAccueilSilhouette) {
+    btnAccueilSilhouette.addEventListener('click', accueil);
+  }
 
   window.addEventListener('resize', onResize);
   if (typeof ResizeObserver !== 'undefined') {
