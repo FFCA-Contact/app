@@ -11,7 +11,7 @@
     'manifest.json',
     'css/style.css',
     'js/app.js',
-    'assets/empty-page.jpeg',
+    'assets/empty-page.png',
     'assets/deer.jpeg',
     'assets/wildboar.jpeg',
     'assets/deer-organs.jpeg',
