@@ -369,7 +369,8 @@ body {
   background: #3a6b1e;
 }
 
-.organs-buttons {
+.organs-buttons,
+.silhouette-buttons {
   display: flex;
   gap: 0.75rem;
   position: absolute;
@@ -378,7 +379,8 @@ body {
   z-index: 10;
 }
 
-.organs-buttons .btn-action {
+.organs-buttons .btn-action,
+.silhouette-buttons .btn-action {
   position: static;
 }
 
