@@ -3,7 +3,7 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Se déclenche dès que vous validez du code sur main
+      - main  # Se déclenche dès que vous validez du code sur main 
 
 permissions:
   contents: write
