@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W71WDDHDH2"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none';">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2d5016">
+  <meta name="description" content="Simulateur d'impact FFCA - visualisez l'impact d'une flèche sur sanglier ou chevreuil">
+  <meta name="version" content="1.0.3">
+  <title>Simulateur d'impact - FFCA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css?v=1.0.3">
+  <link rel="icon" type="image/png" href="assets/Logo-FFCA.png">
+  <link rel="apple-touch-icon" href="assets/Logo-FFCA.png">
+</head>
+<body>
+  <div id="rotate-overlay" class="rotate-overlay" aria-hidden="true" role="status">
+    <div class="rotate-overlay-content">
+      <div class="rotate-overlay-icon" aria-hidden="true"></div>
+      <p class="rotate-overlay-text">Tournez votre téléphone pour utiliser l'application </p>
+    </div>
+  </div>
+  <main id="app" class="view-home">
+    <section id="view-home" class="view" aria-hidden="false" aria-label="Écran d'accueil">
+      <div class="screen-bg" style="background-image: url('assets/empty-page.png');" fetchpriority="high"></div>
+      <div class="home-content">
+        <div class="home-column home-column-left">
+          <div class="species-dropdown">
+            <h1 class="section-title">Espèces</h1>
+            <div class="choice-buttons">
+              <button type="button" class="btn-choice" data-animal="sanglier">Sanglier</button>
+              <button type="button" class="btn-choice" data-animal="chevreuil">Chevreuil</button>
+            </div>
+          </div>
+          <img src="assets/Logo-FFCA.png" alt="Logo FFCA" class="home-logo" fetchpriority="high">
+        </div>
+        <div class="home-column home-column-right">
+          <div class="taglines">
+            <p class="tagline">Chasser léger</p>
+            <p class="tagline">Toujours plus près</p>
+            <p class="tagline">Se créer les conditions d'un tir facile</p>
+            <p class="tagline tagline-italic" style="font-weight: bold;">Militer inlassablement pour la chasse</p>
+          </div>
+          <div class="home-links">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZgwJIbhVZ2u9CvxIrayHPMO9zvP-K0CT5RKlZ3x95aYa4-w/viewform" class="btn-link btn-link-full" target="_blank" rel="noopener noreferrer">Fiche de prélèvement<span class="btn-link-arrow" aria-hidden="true"></span></a>
+            <div class="home-buttons-row">
+              <a href="https://www.ffca.site" class="btn-link" target="_blank" rel="noopener noreferrer">FFCA<span class="btn-link-arrow" aria-hidden="true"></span></a>
+              <a href="https://www.ffca.site/page/3457869-la-boutique-ffca" class="btn-link" target="_blank" rel="noopener noreferrer">Boutique<span class="btn-link-arrow" aria-hidden="true"></span></a>
+            </div>
+          </div>
+          <footer class="copyright" style="text-align: center; font-size: 0.75rem; margin-top: 15px;">
+            &copy; 2026 FFCA - Tous droits réservés - <strong id="app-version">v1.0.3</strong>
+          </footer>
+        </div>
+      </div>
+    </section>
+    
+<section id="view-silhouette" class="view view-hidden" aria-hidden="true">
+      <p id="silhouette-helper" class="silhouette-helper">Cliquez pour placer le point d'impact</p>
+      <div class="screen-bg scope-stage" id="silhouette-stage">
+        <img id="silhouette-img" src="" alt="" class="fit-img">
+        <div id="scope-silhouette" class="scope hidden" aria-hidden="true"><span class="scope-v"></span><span class="scope-h"></span></div>
+      </div>
+      
+      <div class="silhouette-buttons">
+        <button type="button" id="btn-valider" class="btn-action btn-valider" disabled>Valider</button>
+        <button type="button" id="btn-accueil-silhouette" class="btn-action btn-accueil">Accueil</button>
+      </div>
+      
+    </section>
+
+    <section id="view-organs" class="view view-hidden" aria-hidden="true">
+      <div class="screen-bg scope-stage" id="organs-stage">
+        <img id="organs-img" src="" alt="" class="fit-img">
+        <div id="scope-organs" class="scope hidden" aria-hidden="true"><span class="scope-v"></span><span class="scope-h"></span></div>
+      </div>
+      <div class="organs-buttons">
+        <button type="button" id="btn-recommencer" class="btn-action btn-recommencer">Recommencer</button>
+        <button type="button" id="btn-accueil" class="btn-action btn-accueil">Accueil</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js?v=1.0.3"></script>
+</body>
+</html>
