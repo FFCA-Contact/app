@@ -435,3 +435,19 @@ body {
   letter-spacing: 0.02em;
   padding: 0 0 0.25rem 0;
 }
+/* Style pour la nouvelle balise image de fond */
+.screen-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Remplace background-size: cover */
+  z-index: -1;       /* Place l'image derrière le contenu */
+}
+
+/* Assurez-vous que le parent est en position relative */
+#view-home {
+  position: relative;
+  overflow: hidden;
+}
