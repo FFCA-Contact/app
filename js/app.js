@@ -107,20 +107,24 @@ gtag('config', 'G-W71WDDHDH2');
     btnValider.disabled = false;
     if (silhouetteHelper) silhouetteHelper.classList.add('hidden');
   }
-
-  function validate() {
+function validate() {
     if (!state.impactPercent || !state.animal) return;
     var paths = PATHS[state.animal];
+    
+    // On définit l'alt
     organsImg.alt = state.animal === 'sanglier' ? 'Anatomie sanglier' : 'Anatomie chevreuil';
+    
+    // On prépare l'affichage APRES le chargement de la nouvelle source
     organsImg.onload = function () {
+      updateScopeVisibility(scopeOrgans, true);
       positionScope(organsStage, organsImg, scopeOrgans, state.impactPercent);
+      // Nettoyage de l'événement pour éviter les répétitions
+      organsImg.onload = null; 
     };
-    organsImg.src = paths.organs;
+    
+    organsImg.src = paths.organs; // C'est ici que l'image change
     setView('organs');
-    updateScopeVisibility(scopeOrgans, true);
-    positionScope(organsStage, organsImg, scopeOrgans, state.impactPercent);
   }
-
   function recommencer() {
     // Go back to silhouette view with the same animal
     if (state.animal) {
