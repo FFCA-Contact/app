@@ -11,24 +11,25 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
+steps:
       - name: Checkout 
         uses: actions/checkout@v4
 
-      - name: Generate Version Number
-        id: versioning
+      - name: Generate and Inject Version
         run: |
-          # Génère une version basée sur le numéro d'exécution (ex: 1.0.42)
+          # 1. Génération de la version
           VERSION="1.0.${{ github.run_number }}"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-
-      - name: Inject Version in HTML
-        run: |
-          # Remplace les placeholders par la vraie version
-          sed -i "s/{{VERSION}}/${{ env.VERSION }}/g" index.html
+          echo "Version générée : $VERSION"
+          
+          # 2. Injection directe dans index.html
+          # On utilise des doubles quotes pour que le shell interprète la variable $VERSION
+          sed -i "s/{{VERSION}}/${VERSION}/g" index.html
+          
+          # Vérification (optionnel, visible dans les logs)
+          grep "version" index.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: . # Déploie tout le contenu du dossier racine
-          branch: gh-pages # Branche de destination pour l'hébergement
+          folder: . 
+          branch: gh-pages
