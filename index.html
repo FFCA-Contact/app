@@ -4,6 +4,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W71WDDHDH2"></script>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none';">
+  <link rel="preload" href="assets/empty-page.png" as="image" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -26,7 +27,15 @@
   </div>
   <main id="app" class="view-home">
     <section id="view-home" class="view" aria-hidden="false" aria-label="Écran d'accueil">
+
       <div class="screen-bg" style="background-image: url('assets/empty-page.png');" fetchpriority="high"></div>
+
+      <img src="assets/empty-page.png" 
+       class="screen-bg-img" 
+       alt="" 
+       fetchpriority="high" 
+       loading="eager">
+
       <div class="home-content">
         <div class="home-column home-column-left">
           <div class="species-dropdown">
