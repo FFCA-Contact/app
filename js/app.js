@@ -193,4 +193,14 @@ gtag('config', 'G-W71WDDHDH2');
   if (typeof window.matchMedia !== 'undefined') {
     window.matchMedia('(orientation: portrait)').addEventListener('change', updateRotateOverlay);
   }
+  function displayVersion() {
+    const metaVersion = document.querySelector('meta[name="version"]');
+    const versionDisplay = document.getElementById('app-version');
+    if (metaVersion && versionDisplay) {
+      // On récupère la valeur injectée par le script de déploiement dans la balise meta
+      const version = metaVersion.getAttribute('content');
+      versionDisplay.textContent = 'v' + version;
+    }
+  }
+  displayVersion();
 })();
