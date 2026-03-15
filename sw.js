@@ -1,4 +1,4 @@
-const CACHE_NAME = 'impact-tester-ffca-v2';
+const CACHE_NAME = 'impact-tester-ffca-{{VERSION}}';
 
 const PRECACHE_PATHS = [
   'index.html',
