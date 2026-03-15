@@ -463,3 +463,15 @@ body {
     white-space: nowrap;
     border: 0;
 }
+/* Styles pour le footer précédemment en ligne */
+.copyright-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-top: 15px;
+}
+
+/* Style pour la tagline italique */
+.tagline-bold-italic {
+    font-weight: bold;
+    font-style: italic;
+}
