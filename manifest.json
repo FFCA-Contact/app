@@ -10,7 +10,7 @@
   "lang": "fr",
   "icons": [
     {
-      "src": "Logo-FFCA.png",
+      "src": "asset/Logo-FFCA.png",
       "sizes": "466x468",
       "type": "image/png",
       "purpose": "any"
