@@ -475,3 +475,13 @@ body {
     font-weight: bold;
     font-style: italic;
 }
+/* Style pour l'illustration centrale afin de ne pas casser la mise en page */
+.tagline-img {
+  max-width: 100%;       /* Empêche l'image de déborder en largeur */
+  max-height: 15vh;      /* Limite la hauteur à 15% de l'écran (ajustable) */
+  width: auto;           /* Garde les proportions */
+  height: auto;          /* Garde les proportions */
+  object-fit: contain;   /* S'assure que l'image n'est pas rognée */
+  margin-bottom: 0.5rem; /* Ajoute un petit espace avec le texte en dessous */
+  align-self: flex-start;/* L'aligne à gauche par défaut */
+}
