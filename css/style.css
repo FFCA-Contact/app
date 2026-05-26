@@ -51,9 +51,6 @@ body {
 .screen-bg {
   position: absolute;
   inset: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   background-color: #fff;
 }
 
@@ -126,11 +123,6 @@ body {
   /* font-weight: 600; */
   line-height: 1.3;
   color: #377D4E;
-}
-
-.tagline-italic {
-  font-style: italic;
-  margin-top: 0.3rem;
 }
 
 .species-dropdown {
@@ -242,10 +234,6 @@ body {
   border: 3px solid rgba(200, 60, 40, 0.9);
   border-radius: 50%;
   background: rgba(200, 60, 40, 0.12);
-}
-
-.scope::after {
-  display: none;
 }
 
 .scope .scope-v,
